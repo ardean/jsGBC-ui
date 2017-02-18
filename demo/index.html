@@ -16,12 +16,14 @@
   </jsgbc-ui>
 
   <script>
-    var element = document.querySelector("jsgbc-ui");
-    element.addEventListener("down", function (e) {
-      console.log("down", e.detail.button);
-    });
-    element.addEventListener("up", function (e) {
-      console.log("up", e.detail.button);
+    window.addEventListener("WebComponentsReady", function () {
+      var element = document.querySelector("jsgbc-ui");
+      element.addEventListener("down", function (e) {
+        console.log("down", e.detail.button);
+      });
+      element.addEventListener("up", function (e) {
+        console.log("up", e.detail.button);
+      });
     });
   </script>
 </body>
