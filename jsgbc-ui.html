@@ -57,6 +57,11 @@
       .gbc-loading,
       .gbc-lcd {
         flex: 1;
+        display: flex;
+      }
+
+      .gbc-lcd {
+        display: none;
       }
 
       .gbc-loading {
@@ -187,17 +192,13 @@
     <div class="gbc">
       <div class="gbc-body">
         <div class="gbc-screen-frame">
-          <div class="gbc-screen">
-            <template is="dom-if" if="{{loading}}">
-              <div class="gbc-loading">
-                <slot name="loading"></slot>
-              </div>
-            </template>
-            <template is="dom-if" if="{{!loading}}">
-              <div class="gbc-lcd">
-                <slot name="lcd"></slot>
-              </div>
-            </template>
+          <div class="gbc-screen" id="screen">
+            <div class="gbc-loading" id="loading">
+              <slot name="loading"></slot>
+            </div>
+            <div class="gbc-lcd" id="lcd">
+              <slot name="lcd"></slot>
+            </div>
           </div>
         </div>
         <div class="gbc-screen-frame-bottom"></div>
