@@ -23,7 +23,9 @@
     "test"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0",
+    "polymer": "Polymer/polymer#^1.8.0"
+  },
+  "devDependencies": {
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.24"
   }
 }
