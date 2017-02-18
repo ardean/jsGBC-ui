@@ -4,8 +4,6 @@
 
 **A GameBoy Color Web Component used in jsGBC**
 
-[Demo](https://ardean.github.io/jsGBC-ui/)
-
 ## License
 
 [MIT](LICENSE.md)
