@@ -1,6 +1,6 @@
 {
   "name": "jsgbc-ui",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A GameBoy Color Web Component used in jsGBC",
   "scripts": {
     "start": "browser-sync start -c bsconfig.js"
