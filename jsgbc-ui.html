@@ -2,7 +2,7 @@
 <dom-module id="jsgbc-ui">
   <template>
     <style>
-      .gbc {
+      .jsgbc-ui-inner {
         display: flex;
         flex-direction: column;
         width: 400px;
@@ -12,14 +12,14 @@
         max-width: 400px;
         max-height: 709px;
       }
-
-      .gbc-body {
+      
+      .jsgbc-ui-body {
         background-color: #b2e200;
         border-radius: 22px 22px 30% 30% / 22px 22px 50px 50px;
         flex: 1;
       }
-
-      .gbc-screen-frame {
+      
+      .jsgbc-ui-screen-frame {
         background-color: #000;
         border-radius: 22px 22px 0 0;
         margin: 0 20px;
@@ -30,106 +30,106 @@
         justify-content: center;
         align-items: center;
       }
-
-      .gbc-screen-frame-bottom {
+      
+      .jsgbc-ui-screen-frame-bottom {
         background-color: #000;
         border-radius: 0 0 14px 14px / 0 0 22px 22px;
         height: 50px;
         margin: 0 20px;
       }
-
-      .gbc-screen-frame-end {
+      
+      .jsgbc-ui-screen-frame-end {
         background-color: #000;
         border-radius: 0 0 20% 20% / 0 0 100% 100%;
         height: 7px;
         margin: 0 30px;
         margin-top: -2px;
       }
-
-      .gbc-screen {
+      
+      .jsgbc-ui-screen {
         width: 233.33px;
         height: 210px;
         display: flex;
         background-image: url("images/lcd.png");
       }
-
-      .gbc-loading,
-      .gbc-lcd {
+      
+      .jsgbc-ui-loading,
+      .jsgbc-ui-lcd {
         flex: 1;
         display: flex;
       }
-
-      .gbc-lcd {
+      
+      .jsgbc-ui-lcd {
         display: none;
       }
-
-      .gbc-loading {
+      
+      .jsgbc-ui-loading {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-
-      .gbc-middle {
+      
+      .jsgbc-ui-middle {
         margin: 0 20px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding-top: 80px;
       }
-
-      .gbc-button {
+      
+      .jsgbc-ui-button {
         -webkit-app-region: no-drag;
         cursor: pointer;
       }
-
-      .gbc-dpad {
+      
+      .jsgbc-ui-dpad {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         margin-left: 10px;
       }
-
-      .gbc-dpad .gbc-button,
-      .gbc-dpad-empty {
+      
+      .jsgbc-ui-dpad .jsgbc-ui-button,
+      .jsgbc-ui-dpad-empty {
         height: 30px;
         width: 30px;
         background-color: #000;
       }
-
-      .gbc-dpad-middle {
+      
+      .jsgbc-ui-dpad-middle {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
       }
-
-      .gbc-button-up {
+      
+      .jsgbc-ui-button-up {
         border-radius: 3px 3px 0 0;
       }
-
-      .gbc-button-right {
+      
+      .jsgbc-ui-button-right {
         border-radius: 0 3px 3px 0;
       }
-
-      .gbc-button-down {
+      
+      .jsgbc-ui-button-down {
         border-radius: 0 0 3px 3px;
       }
-
-      .gbc-button-left {
+      
+      .jsgbc-ui-button-left {
         border-radius: 3px 0 0 3px;
       }
-
-      .gbc-buttons-right {
+      
+      .jsgbc-ui-buttons-right {
         display: flex;
         flex-direction: column;
         margin-right: 10px;
         margin-top: 5px;
       }
-
-      .gbc-button-a,
-      .gbc-button-b {
+      
+      .jsgbc-ui-button-a,
+      .jsgbc-ui-button-b {
         height: 50px;
         width: 50px;
         background-color: #000;
@@ -137,41 +137,41 @@
         color: #CCC;
         text-align: center;
       }
-
-      .gbc-buttons-right .gbc-button-label {
+      
+      .jsgbc-ui-buttons-right .jsgbc-ui-button-label {
         padding-top: 5px;
         padding-right: 7px;
         font-size: 35px;
       }
-
-      .gbc-button-a {
+      
+      .jsgbc-ui-button-a {
         margin-left: 70px;
         margin-bottom: -10px;
       }
-
-      .gbc-button-b {
+      
+      .jsgbc-ui-button-b {
         margin-right: 70px;
         margin-top: -10px;
       }
-
-      .gbc-bottom {
+      
+      .jsgbc-ui-bottom {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         margin-top: 70px;
       }
-
-      .gbc-select,
-      .gbc-start {
+      
+      .jsgbc-ui-select,
+      .jsgbc-ui-start {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-
-      .gbc-button-select,
-      .gbc-button-start {
+      
+      .jsgbc-ui-button-select,
+      .jsgbc-ui-button-start {
         background-color: #000;
         height: 15px;
         width: 35px;
@@ -179,126 +179,179 @@
         margin-bottom: 9px;
         border-radius: 5px;
       }
-
-      .gbc-body-end {
+      
+      .jsgbc-ui-body-end {
         background-color: #b2e200;
         border-radius: 0 0 20% 20% / 0 0 100% 100%;
         height: 3px;
         margin: 0 80px;
         margin-top: -4px;
       }
+      
+      .jsgbc-ui.jsgbc-ui-fullscreen::before {
+        content: "";
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      
+      .jsgbc-ui-fullscreen .jsgbc-ui-screen {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+      }
+      
+      @media (min-aspect-ratio: 160 / 144) {
+        .jsgbc-ui-fullscreen .jsgbc-ui-screen {
+          top: 0;
+          left: calc((100vw - 111.11vh) / 2);
+          height: 100vh;
+          width: 111.11vh;
+        }
+      }
+      
+      @media (max-aspect-ratio: 160 / 144) {
+        .jsgbc-ui-fullscreen .jsgbc-ui-screen {
+          top: calc((100vh - 90vw) / 2);
+          left: 0;
+          height: 90vw;
+          width: 100vw;
+        }
+      }
+
     </style>
-    <div class="gbc">
-      <div class="gbc-body">
-        <div class="gbc-screen-frame">
-          <div class="gbc-screen" id="screen">
-            <div class="gbc-loading" id="loading">
+    <div class="jsgbc-ui-inner" id="inner">
+      <div class="jsgbc-ui-body">
+        <div class="jsgbc-ui-screen-frame">
+          <div class="jsgbc-ui-screen" id="screen">
+            <div class="jsgbc-ui-loading" id="loading">
               <slot name="loading"></slot>
             </div>
-            <div class="gbc-lcd" id="lcd">
+            <div class="jsgbc-ui-lcd" id="lcd">
               <slot name="lcd"></slot>
             </div>
           </div>
         </div>
-        <div class="gbc-screen-frame-bottom"></div>
-        <div class="gbc-screen-frame-end"></div>
+        <div class="jsgbc-ui-screen-frame-bottom"></div>
+        <div class="jsgbc-ui-screen-frame-end"></div>
 
-        <div class="gbc-middle">
-          <div class="gbc-dpad">
-            <div class="gbc-button gbc-dpad-button gbc-button-up" id="up"></div>
-            <div class="gbc-dpad-middle">
-              <div class="gbc-button gbc-dpad-button gbc-button-left" id="left"></div>
-              <div class="gbc-dpad-empty"></div>
-              <div class="gbc-button gbc-dpad-button gbc-button-right" id="right"></div>
+        <div class="jsgbc-ui-middle">
+          <div class="jsgbc-ui-dpad">
+            <div class="jsgbc-ui-button jsgbc-ui-dpad-button jsgbc-ui-button-up" id="up"></div>
+            <div class="jsgbc-ui-dpad-middle">
+              <div class="jsgbc-ui-button jsgbc-ui-dpad-button jsgbc-ui-button-left" id="left"></div>
+              <div class="jsgbc-ui-dpad-empty"></div>
+              <div class="jsgbc-ui-button jsgbc-ui-dpad-button jsgbc-ui-button-right" id="right"></div>
             </div>
-            <div class="gbc-button gbc-dpad-button gbc-button-down" id="down"></div>
+            <div class="jsgbc-ui-button jsgbc-ui-dpad-button jsgbc-ui-button-down" id="down"></div>
           </div>
 
-          <div class="gbc-buttons-right">
+          <div class="jsgbc-ui-buttons-right">
             <div>
-              <div class="gbc-button gbc-button-a" id="a">
-                <div class="gbc-button-label">A</div>
+              <div class="jsgbc-ui-button jsgbc-ui-button-a" id="a">
+                <div class="jsgbc-ui-button-label">A</div>
               </div>
             </div>
             <div>
-              <div class="gbc-button gbc-button-b" id="b">
-                <div class="gbc-button-label">B</div>
+              <div class="jsgbc-ui-button jsgbc-ui-button-b" id="b">
+                <div class="jsgbc-ui-button-label">B</div>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="gbc-bottom">
-          <div class="gbc-select">
-            <div class="gbc-button gbc-button-select" id="select"></div>
-            <div class="gbc-bottom-label">SELECT</div>
+        <div class="jsgbc-ui-bottom">
+          <div class="jsgbc-ui-select">
+            <div class="jsgbc-ui-button jsgbc-ui-button-select" id="select"></div>
+            <div class="jsgbc-ui-bottom-label">SELECT</div>
           </div>
-          <div class="gbc-start">
-            <div class="gbc-button gbc-button-start" id="start"></div>
-            <div class="gbc-bottom-label">START</div>
+          <div class="jsgbc-ui-start">
+            <div class="jsgbc-ui-button jsgbc-ui-button-start" id="start"></div>
+            <div class="jsgbc-ui-bottom-label">START</div>
           </div>
         </div>
       </div>
-      <div class="gbc-body-end"></div>
+      <div class="jsgbc-ui-body-end"></div>
     </div>
   </template>
   <script>
-  Polymer({
-  is: "jsgbc-ui",
-  properties: {
-    loading: {
-      type: Boolean,
-      observer: "_loadingChanged"
-    }
-  },
-  listeners: {
-    "up.down": "_handleDown",
-    "up.up": "_handleUp",
-    "right.down": "_handleDown",
-    "right.up": "_handleUp",
-    "down.down": "_handleDown",
-    "down.up": "_handleUp",
-    "left.down": "_handleDown",
-    "left.up": "_handleUp",
-    "a.down": "_handleDown",
-    "a.up": "_handleUp",
-    "b.down": "_handleDown",
-    "b.up": "_handleUp",
-    "start.down": "_handleDown",
-    "start.up": "_handleUp",
-    "select.down": "_handleDown",
-    "select.up": "_handleUp"
-  },
-  attached: function() {
-    this.screenElement = this.$.screen;
-    this.lcdElement = this.$.lcd.querySelector("*");
-    this.lcdElement.classList.add("flex");
-    this._loadingChanged(this.loading);
-  },
-  _loadingChanged: function(newValue) {
-    if (!this.lcdElement) return;
-    if (newValue) {
-      this.$.loading.style.display = "flex";
-      this.$.lcd.style.display = "none";
-      this.lcdElement.style.display = "none";
-    } else {
-      this.$.loading.style.display = "none";
-      this.$.lcd.style.display = "flex";
-      this.lcdElement.style.display = "flex";
-    }
-  },
-  _handleDown: function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.fire("down", { button: e.currentTarget.id });
-    return false;
-  },
-  _handleUp: function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.fire("up", { button: e.currentTarget.id });
-    return false;
-  }
-});
-</script>
+    Polymer({
+      is: "jsgbc-ui",
+      properties: {
+        loading: {
+          type: Boolean,
+          observer: "_loadingChanged"
+        },
+        fullscreen: {
+          type: Boolean,
+          observer: "_fullscreenChanged",
+          value: false
+        }
+      },
+      listeners: {
+        "up.down": "_handleDown",
+        "up.up": "_handleUp",
+        "right.down": "_handleDown",
+        "right.up": "_handleUp",
+        "down.down": "_handleDown",
+        "down.up": "_handleUp",
+        "left.down": "_handleDown",
+        "left.up": "_handleUp",
+        "a.down": "_handleDown",
+        "a.up": "_handleUp",
+        "b.down": "_handleDown",
+        "b.up": "_handleUp",
+        "start.down": "_handleDown",
+        "start.up": "_handleUp",
+        "select.down": "_handleDown",
+        "select.up": "_handleUp"
+      },
+      attached: function () {
+        this.fullscreenClassName = "jsgbc-ui-fullscreen";
+        this.innerElement = this.$.inner;
+        this.screenElement = this.$.screen;
+        this.lcdElement = this.$.lcd.querySelector("*");
+        this.lcdElement.classList.add("flex");
+        this._loadingChanged(this.loading);
+        this._fullscreenChanged(this.fullscreen);
+      },
+      _loadingChanged: function (newValue) {
+        if (!this.innerElement) return;
+        if (newValue) {
+          this.$.loading.style.display = "flex";
+          this.$.lcd.style.display = "none";
+          this.lcdElement.style.display = "none";
+        } else {
+          this.$.loading.style.display = "none";
+          this.$.lcd.style.display = "flex";
+          this.lcdElement.style.display = "flex";
+        }
+      },
+      _fullscreenChanged: function (newValue) {
+        if (!this.innerElement) return;
+        var hasClass = this.innerElement.classList.contains(this.fullscreenClassName);
+        if (newValue && !hasClass) {
+          this.innerElement.classList.add(this.fullscreenClassName);
+        } else if (!newValue && hasClass) {
+          this.innerElement.classList.remove(this.fullscreenClassName);
+        }
+      },
+      _handleDown: function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.fire("down", { button: e.currentTarget.id });
+        return false;
+      },
+      _handleUp: function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        this.fire("up", { button: e.currentTarget.id });
+        return false;
+      }
+    });
+
+  </script>
 </dom-module>
