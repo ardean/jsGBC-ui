@@ -1,8 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <dom-module id="jsgbc-ui">
   <template>
     <style>
-       :host:not([no-pixelation]) .jsgbc-ui-lcd {
+       :host:not([no-pixelation]) ::shadow .jsgbc-ui-canvas {
         /* Legal fallback */
         image-rendering: optimizeSpeed;
         /* Firefox        */
@@ -19,6 +20,10 @@
         image-rendering: pixelated;
         /* IE8+           */
         -ms-interpolation-mode: nearest-neighbor;
+      }
+      
+       :host ::shadow .jsgbc-ui-canvas {
+        @apply --layout-flex;
       }
       
       .jsgbc-ui-inner {
@@ -337,7 +342,7 @@
         this.innerElement = this.$.inner;
         this.screenElement = this.$.screen;
         this.lcdElement = this.$.lcd.querySelector("*");
-        this.lcdElement.classList.add("flex");
+        this.lcdElement.classList.add("jsgbc-ui-canvas");
         this._loadingChanged(this.loading);
         this._fullscreenChanged(this.fullscreen);
       },
