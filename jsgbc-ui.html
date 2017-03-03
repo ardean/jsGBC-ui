@@ -2,6 +2,25 @@
 <dom-module id="jsgbc-ui">
   <template>
     <style>
+       :host:not([no-pixelation]) .jsgbc-ui-lcd {
+        /* Legal fallback */
+        image-rendering: optimizeSpeed;
+        /* Firefox        */
+        image-rendering: -moz-crisp-edges;
+        /* Opera          */
+        image-rendering: -o-crisp-edges;
+        /* Safari         */
+        image-rendering: -webkit-optimize-contrast;
+        /* CSS3 Proposed  */
+        image-rendering: optimize-contrast;
+        /* CSS4 Proposed  */
+        image-rendering: crisp-edges;
+        /* CSS4 Proposed  */
+        image-rendering: pixelated;
+        /* IE8+           */
+        -ms-interpolation-mode: nearest-neighbor;
+      }
+      
       .jsgbc-ui-inner {
         display: flex;
         flex-direction: column;
@@ -51,6 +70,8 @@
         height: 210px;
         display: flex;
         background-image: url("images/lcd.png");
+        background-repeat: repeat;
+        background-size: 3px;
       }
       
       .jsgbc-ui-loading,
@@ -210,6 +231,7 @@
           left: calc((100vw - 111.11vh) / 2);
           height: 100vh;
           width: 111.11vh;
+          background-size: 1vh;
         }
       }
       
@@ -219,6 +241,7 @@
           left: 0;
           height: 90vw;
           width: 100vw;
+          background-size: 1vw;
         }
       }
 
