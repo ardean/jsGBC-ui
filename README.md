@@ -1,5 +1,7 @@
 # jsGBC-ui
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ardean/jsGBC-ui.svg)](https://greenkeeper.io/)
+
 [![Github Version][gh-image]][gh-url]
 [![Webcomponents][webcomponents-image]][webcomponents-url]
 [![License][license-image]][license-url]
