@@ -1,0 +1,252 @@
+jsgbc-ui:not([no-pixelation]) .jsgbc-ui-canvas {
+  /* Legal fallback */
+  image-rendering: optimizeSpeed;
+  /* Firefox        */
+  image-rendering: -moz-crisp-edges;
+  /* Opera          */
+  image-rendering: -o-crisp-edges;
+  /* Safari         */
+  image-rendering: -webkit-optimize-contrast;
+  /* CSS3 Proposed  */
+  image-rendering: optimize-contrast;
+  /* CSS4 Proposed  */
+  image-rendering: crisp-edges;
+  /* CSS4 Proposed  */
+  image-rendering: pixelated;
+  /* IE8+           */
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+jsgbc-ui .jsgbc-ui-canvas {
+  display: flex;
+}
+
+.jsgbc-ui-inner {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 709px;
+  min-width: 400px;
+  min-height: 709px;
+  max-width: 400px;
+  max-height: 709px;
+}
+
+.jsgbc-ui-body {
+  background-color: #b2e200;
+  border-radius: 22px 22px 30% 30% / 22px 22px 50px 50px;
+  flex: 1;
+}
+
+.jsgbc-ui-screen-frame {
+  background-color: #000;
+  border-radius: 22px 22px 0 0;
+  margin: 0 20px;
+  margin-top: 22px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.jsgbc-ui-screen-frame-bottom {
+  background-color: #000;
+  border-radius: 0 0 14px 14px / 0 0 22px 22px;
+  height: 50px;
+  margin: 0 20px;
+}
+
+.jsgbc-ui-screen-frame-end {
+  background-color: #000;
+  border-radius: 0 0 20% 20% / 0 0 100% 100%;
+  height: 7px;
+  margin: 0 30px;
+  margin-top: -2px;
+}
+
+.jsgbc-ui-screen {
+  width: 233.33px;
+  height: 210px;
+  display: flex;
+  background-image: url("../images/lcd.png");
+  background-repeat: repeat;
+  background-size: 3px;
+  -webkit-app-region: no-drag;
+}
+
+.jsgbc-ui-loading,
+.jsgbc-ui-lcd {
+  flex: 1;
+  display: flex;
+}
+
+.jsgbc-ui-lcd {
+  display: none;
+}
+
+.jsgbc-ui-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jsgbc-ui-middle {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 80px;
+}
+
+.jsgbc-ui-button {
+  -webkit-app-region: no-drag;
+  user-select: none;
+  cursor: pointer;
+}
+
+.jsgbc-ui-dpad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.jsgbc-ui-dpad .jsgbc-ui-button,
+.jsgbc-ui-dpad-empty {
+  height: 30px;
+  width: 30px;
+  background-color: #000;
+}
+
+.jsgbc-ui-dpad-middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.jsgbc-ui-button-up {
+  border-radius: 3px 3px 0 0;
+}
+
+.jsgbc-ui-button-right {
+  border-radius: 0 3px 3px 0;
+}
+
+.jsgbc-ui-button-down {
+  border-radius: 0 0 3px 3px;
+}
+
+.jsgbc-ui-button-left {
+  border-radius: 3px 0 0 3px;
+}
+
+.jsgbc-ui-buttons-right {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.jsgbc-ui-button-a,
+.jsgbc-ui-button-b {
+  height: 50px;
+  width: 50px;
+  background-color: #000;
+  border-radius: 50%;
+  color: #CCC;
+  text-align: center;
+}
+
+.jsgbc-ui-buttons-right .jsgbc-ui-button-label {
+  padding-top: 5px;
+  padding-right: 7px;
+  font-size: 35px;
+}
+
+.jsgbc-ui-button-a {
+  margin-left: 70px;
+  margin-bottom: -10px;
+}
+
+.jsgbc-ui-button-b {
+  margin-right: 70px;
+  margin-top: -10px;
+}
+
+.jsgbc-ui-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.jsgbc-ui-select,
+.jsgbc-ui-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jsgbc-ui-button-select,
+.jsgbc-ui-button-start {
+  background-color: #000;
+  height: 15px;
+  width: 35px;
+  margin: 0 15px;
+  margin-bottom: 9px;
+  border-radius: 5px;
+}
+
+.jsgbc-ui-bottom-label {
+  user-select: none;
+}
+
+.jsgbc-ui-body-end {
+  background-color: #b2e200;
+  border-radius: 0 0 20% 20% / 0 0 100% 100%;
+  height: 3px;
+  margin: 0 80px;
+  margin-top: -4px;
+}
+
+.jsgbc-ui-inner.jsgbc-ui-fullscreen::before {
+  content: "";
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.jsgbc-ui-fullscreen .jsgbc-ui-screen {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+@media (min-aspect-ratio: 160 / 144) {
+  .jsgbc-ui-fullscreen .jsgbc-ui-screen {
+    top: 0;
+    left: calc((100vw - 111.11vh) / 2);
+    height: 100vh;
+    width: 111.11vh;
+    background-size: 1vh;
+  }
+}
+
+@media (max-aspect-ratio: 160 / 144) {
+  .jsgbc-ui-fullscreen .jsgbc-ui-screen {
+    top: calc((100vh - 90vw) / 2);
+    left: 0;
+    height: 90vw;
+    width: 100vw;
+    background-size: 1vw;
+  }
+}
