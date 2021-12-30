@@ -1,22 +1,28 @@
 {
   "name": "jsgbc-ui",
   "version": "0.3.0",
-  "description": "A GameBoy Color Web Component used in jsGBC",
-  "scripts": {
-    "start": "NODE_ENV=development webpack serve --config webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js"
-  },
+  "description": "A GameBoy Color UI used in jsGBC",
+  "main": "./dist/jsgbc-ui.js",
+  "types": "./dist/types/index.d.ts",
+  "author": "ardean",
+  "license": "MIT",
   "keywords": [
     "jsgbc",
-    "polymer",
     "gameboy",
     "gameboy-color",
     "gbc",
-    "gb",
-    "web-component"
+    "gb"
   ],
-  "author": "ardean",
-  "license": "MIT",
+  "files": [
+    "dist",
+    "images",
+    "styles"
+  ],
+  "scripts": {
+    "start": "NODE_ENV=development webpack serve --config webpack.dev.js",
+    "build": "NODE_ENV=production webpack --config webpack.prod.js",
+    "test": "npm run build"
+  },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
     "ts-loader": "^9.2.6",
